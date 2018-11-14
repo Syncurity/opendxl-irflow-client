@@ -1,0 +1,12 @@
+build
+dist
+dxlclient.egg-info
+.eggs
+MANIFEST
+dxlclient/test/client_config.cfg
+*.pyc
+*.crt
+*.csr
+*.key
+.idea
+.DS_Store
