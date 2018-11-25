@@ -14,14 +14,14 @@ with open(os.path.join(CWD, "irflowclient", "_version.py")) as f:
 
 setup(
     # Package name:
-    name="irflowclient",
+    name="opendxl_irflow_client",
 
     # Version number:
     version=VERSION_INFO["__version__"],
 
     # Package requirements
     install_requires=[
-        "requests",
+        "requests==2.20.0",
         "irflow_client",
         "dxlbootstrap>=0.2.0",
         "dxlclient>=4.1.0.184"
@@ -31,13 +31,13 @@ setup(
     python_requires=">=2.7.9,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*",
 
     # Package author details:
-    author="",
+    author="JP Bourget, Syncurity",
 
     # License
-    license="",
+    license="Apache 2.0",
 
     # Keywords
-    keywords=[],
+    keywords=['security', 'syncurity', 'ir-flow', 'orchestration', 'opendxl'],
 
     # Packages
     packages=[
@@ -49,9 +49,9 @@ setup(
         "irflowclient._config.sample" : ['*']},
 
     # Details
-    url="",
+    url="https://github.com/Syncurity/opendxl-irflow-client",
 
-    description="",
+    description="opendxl-irflow-client",
 
     long_description=open('README').read(),
 

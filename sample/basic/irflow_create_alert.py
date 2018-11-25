@@ -47,7 +47,7 @@ with DxlClient(config) as client:
         create_alert_response = json.loads(res.payload)
         print("Response for irflow_service_create_alert: \n"
               "Created IR-Flow Alert ID: '{0}'"
-              .format(create_alert_response['data']['alert']['id']))
+              .format(create_alert_response['alert_num']))
     else:
         print("Error invoking service with topic '{0}': {1} ({2})".format(
             request_topic, res.error_message, res.error_code))

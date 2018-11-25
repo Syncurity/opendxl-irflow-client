@@ -30,7 +30,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = ""IR-Flow Client""
+project = "IR-Flow Client"
 copyright = "2015-2018"
 
 # The version info for the project you're documenting, acts as replacement for
