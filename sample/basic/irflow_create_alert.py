@@ -32,25 +32,26 @@ with DxlClient(config) as client:
     # Build IR-Flow Client
     irfc = IRFlowApiClient(client)
 
-    # Send request that will trigger request callback 'irflow_service_create_alert'
+    # Set request that will trigger request callback 'irflow_service_create_alert'
     request_topic = "/syncurity/service/irflow_api/create_alert"
     req = Request(request_topic)
 
     # Create dictionary payload with host to lookup and response format
     # eventType is Incoming Data Field Group in IR-Flow
     # See the payload of the alert object in IR-Flow to determine key: value pairs available
+    # TODO parameterize kv pairs for creating alert or allow a dictionary to be passed in
+
     req_dict = {
         "sourceHostName": "irflow-test.syncurity.net",
-        "sourceAddress": "10.0.10.20",
-        "eventType": "openDXL fabric alert",
-        "description": "DXL Payload"
+        "sourceAddress": "10.0.10.20"
     }
 
-    # Convert dictionary to JSON and set as DXL request payload
-    MessageUtils.dict_to_json_payload(req, req_dict)
+    description = "DXL Payload"
+    incoming_field_group_name = 'DXLAlerts'
+    suppress_missing_field_warning = True
 
     # Fire Away
-    res = irfc.create_alert(req)
+    res = irfc.create_alert(req_dict, description, incoming_field_group_name, suppress_missing_field_warning)
     if res.message_type is not Message.MESSAGE_TYPE_ERROR:
         create_alert_response = json.loads(res.payload)
 
