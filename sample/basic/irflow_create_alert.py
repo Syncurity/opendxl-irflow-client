@@ -22,12 +22,15 @@ logger = logging.getLogger(__name__)
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
 
 # Create the client
-with IRFlowApiClient(config) as client:
+with DxlClient(config) as client:
 
     # Connect to the fabric
     client.connect()
 
     logger.info("Connected to DXL fabric.")
+
+    # Build IR-Flow Client
+    irfc = IRFlowApiClient(client)
 
     # Send request that will trigger request callback 'irflow_service_create_alert'
     request_topic = "/syncurity/service/irflow_api/create_alert"
@@ -47,7 +50,7 @@ with IRFlowApiClient(config) as client:
     MessageUtils.dict_to_json_payload(req, req_dict)
 
     # Fire Away
-    res = client.sync_request(req, timeout=30)
+    res = irfc.create_alert(req)
     if res.message_type is not Message.MESSAGE_TYPE_ERROR:
         create_alert_response = json.loads(res.payload)
 

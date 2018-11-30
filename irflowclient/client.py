@@ -37,8 +37,8 @@ class IRFlowApiClient(Client):
 
         # Build Request payload
         payload = {fact_data}
-        payload['format'] = ("json" if out_format is "dict" else out_format)
-        payload['eventType'] = "openDXL fabric alert"
+        # payload['format'] = out_format
+        # payload['eventType'] = "openDXL fabric alert"
 
         # Set the payload on the request message (Python dictionary to JSON payload)
         MessageUtils.dict_to_json_payload(

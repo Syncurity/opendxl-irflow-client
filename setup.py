@@ -21,7 +21,7 @@ setup(
 
     # Package requirements
     install_requires=[
-        "requests==2.20.0",
+        "requests>=2.20.0",
         "irflow_client",
         "dxlbootstrap>=0.2.0",
         "dxlclient>=4.1.0.184"
@@ -41,12 +41,12 @@ setup(
 
     # Packages
     packages=[
-        "irflowclient",
-        "irflowclient._config",
-        "irflowclient._config.sample"],
+        "opendxl_irflow_client",
+        "opendxl_irflow_client._config",
+        "opendxl_irflow_client._config.sample"],
 
     package_data={
-        "irflowclient._config.sample" : ['*']},
+        "opendxl_irflow_client._config.sample" : ['*']},
 
     # Details
     url="https://github.com/Syncurity/opendxl-irflow-client",
