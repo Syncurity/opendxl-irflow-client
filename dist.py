@@ -28,8 +28,8 @@ def replace(file_path, pattern, subst):
 
 print("Starting dist.\n")
 
-VERSION = __import__('irflowclient').get_version()
-RELEASE_NAME = "irflowclient-python-dist-" + str(VERSION)
+VERSION = __import__('opendxlirflowclient').get_version()
+RELEASE_NAME = "opendxlirflowclient-python-dist-" + str(VERSION)
 
 DIST_PY_FILE_LOCATION = os.path.dirname(os.path.realpath(__file__))
 DIST_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "dist")
@@ -53,7 +53,7 @@ subprocess.check_call(["sphinx-apidoc",
                        "--separate",
                        "--no-toc",
                        "--output-dir=" + DIST_DOCTMP_DIR,
-                       os.path.join(DIST_PY_FILE_LOCATION, "irflowclient")])
+                       os.path.join(DIST_PY_FILE_LOCATION, "opendxlirflowclient")])
 
 print("\nCopying conf.py, docutils.conf, and sdk directory\n")
 copy_file(os.path.join(DIST_PY_FILE_LOCATION, "doc", "conf.py"),
@@ -104,7 +104,7 @@ copy_tree(DIST_DIRECTORY, DIST_RELEASE_DIR)
 print("\nRemoving build directory\n")
 remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "build"))
 
-print("\nRemoving irflowclient.egg-info\n")
+print("\nRemoving opendxlirflowclient.egg-info\n")
 remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "opendxl_irflow_client.egg-info"))
 
 print("\nMaking dist zip\n")

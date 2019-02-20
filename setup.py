@@ -9,12 +9,12 @@ setuptools.command.sdist.sdist.run = distutils.command.sdist.sdist.run
 
 VERSION_INFO = {}
 CWD = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(CWD, "irflowclient", "_version.py")) as f:
+with open(os.path.join(CWD, "opendxlirflowclient", "_version.py")) as f:
     exec(f.read(), VERSION_INFO)
 
 setup(
     # Package name:
-    name="opendxl_irflow_client",
+    name="opendxlirflowclient",
 
     # Version number:
     version=VERSION_INFO["__version__"],
@@ -41,12 +41,12 @@ setup(
 
     # Packages
     packages=[
-        "opendxl_irflow_client",
-        "opendxl_irflow_client._config",
-        "opendxl_irflow_client._config.sample"],
+        "opendxlirflowclient",
+        "opendxlirflowclient._config",
+        "opendxlirflowclient._config.sample"],
 
     package_data={
-        "opendxl_irflow_client._config.sample" : ['*']},
+        "opendxlirflowclient._config.sample" : ['*']},
 
     # Details
     url="https://github.com/Syncurity/opendxl-irflow-client",
