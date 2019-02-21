@@ -26,9 +26,9 @@ DIST_PY_FILE_LOCATION = os.path.dirname(os.path.realpath(__file__))
 DIST_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "dist")
 CONFIG_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "config")
 SAMPLE_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "sample")
-CONFIG_SRC_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "opendxlirflowclient",
+CONFIG_SRC_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "dxlirflowclient",
                                     "_config", "app")
-SAMPLE_SRC_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "opendxlirflowclient",
+SAMPLE_SRC_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "dxlirflowclient",
                                     "_config", "sample")
 
 # Remove the dist directory if it exists

@@ -8,7 +8,7 @@ from dxlclient.client_config import DxlClientConfig
 from dxlclient.client import DxlClient
 from dxlclient.message import Message, Event, Request
 from dxlbootstrap.util import MessageUtils
-from opendxlirflowclient.client import IRFlowApiClient
+from dxlirflowclient.client import IRFlowApiClient
 
 # Import common logging and configuration
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
