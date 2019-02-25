@@ -20,39 +20,70 @@ class IRFlowApiClient(Client):
         """
         super(IRFlowApiClient, self).__init__(dxl_client)
 
-    def create_alert(self, fact_data, out_format="dict"):
+    def create_alert(self, payload, description, incoming_field_group_name, suppress_missing_field_warning):
         """
         Creates an alert in IR-Flow
 
-        :param fact_data: IR-Flow Fact Fields (dict)
-        :param out_format: The output format
+        :param payload: IR-Flow Fact Fields (dict)
+        :param description: The IR-Flow Alert Description
+        :param incoming_field_group_name: The Data Source Name in IR-Flow
+        :param suppress_missing_field_warning: Boolean to show missing fields from API
         :return: The alert creation json
         """
         # Validate specified output format
-        if out_format not in IRFlowApiClient.OUT_FORMATS:
-            raise Exception("Unknown format: {0}".format(out_format))
+        # Commented out, will only support JSON return
+        # if out_format not in IRFlowApiClient.OUT_FORMATS:
+        #    raise Exception("Unknown format: {0}".format(out_format))
 
         # Create the DXL request message
         request = Request("/syncurity/service/irflow_api/create_alert")
 
         # Build Request payload
-        payload = {fact_data}
-        payload['format'] = ("json" if out_format is "dict" else out_format)
-        payload['eventType'] = "openDXL fabric alert"
+        fact_data = {'fields': payload, 'description': description,
+                     'incoming_field_group_name': incoming_field_group_name,
+                     'suppress_missing_field_warning': suppress_missing_field_warning}
 
         # Set the payload on the request message (Python dictionary to JSON payload)
         MessageUtils.dict_to_json_payload(
             request,
-            payload
+            fact_data
         )
 
         # Perform a synchronous DXL request
         response = self._dxl_sync_request(request)
 
-        if out_format is "dict":
-            return MessageUtils.json_payload_to_dict(response)
-        else:
-            return MessageUtils.decode_payload(response)
+        return response
+
+    def close_alert(self, payload):
+        """
+        Closes an alert in IR-Flow
+
+        :param payload: IR-Flow Close Alert Fields (dict) (alert_num(str), close_reason(str)
+
+        :return: The alert close json
+        """
+        # Validate specified output format
+        # Commented out, will only support JSON return
+        # if out_format not in IRFlowApiClient.OUT_FORMATS:
+        #    raise Exception("Unknown format: {0}".format(out_format))
+
+        # Create the DXL request message
+        request = Request("/syncurity/service/irflow_api/close_alert")
+
+        # Build Request payload
+        fact_data = {'alert_num': payload['alert_num'],
+                     'close_reason': payload['close_reason']}
+
+        # Set the payload on the request message (Python dictionary to JSON payload)
+        MessageUtils.dict_to_json_payload(
+            request,
+            fact_data
+        )
+
+        # Perform a synchronous DXL request
+        response = self._dxl_sync_request(request)
+
+        return response
 
     def my_example_method(self):
         """
@@ -79,3 +110,4 @@ class IRFlowApiClient(Client):
         # Convert the JSON payload in the DXL response message to a Python dictionary
         # and return it.
         return MessageUtils.json_payload_to_dict(response)
+

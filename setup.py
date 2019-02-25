@@ -9,7 +9,7 @@ setuptools.command.sdist.sdist.run = distutils.command.sdist.sdist.run
 
 VERSION_INFO = {}
 CWD = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(CWD, "irflowclient", "_version.py")) as f:
+with open(os.path.join(CWD, "dxlirflowclient", "_version.py")) as f:
     exec(f.read(), VERSION_INFO)
 
 setup(
@@ -21,7 +21,7 @@ setup(
 
     # Package requirements
     install_requires=[
-        "requests==2.20.0",
+        "requests>=2.20.0",
         "irflow_client",
         "dxlbootstrap>=0.2.0",
         "dxlclient>=4.1.0.184"
@@ -37,21 +37,21 @@ setup(
     license="Apache 2.0",
 
     # Keywords
-    keywords=['security', 'syncurity', 'ir-flow', 'orchestration', 'opendxl'],
+    keywords=['security', 'syncurity', 'ir-flow', 'orchestration', 'opendxl', 'soar'],
 
     # Packages
     packages=[
-        "irflowclient",
-        "irflowclient._config",
-        "irflowclient._config.sample"],
+        "dxlirflowclient",
+        "dxlirflowclient._config",
+        "dxlirflowclient._config.sample"],
 
     package_data={
-        "irflowclient._config.sample" : ['*']},
+        "dxlirflowclient._config.sample" : ['*']},
 
     # Details
     url="https://github.com/Syncurity/opendxl-irflow-client",
 
-    description="opendxl-irflow-client",
+    description="dxlirflowclient",
 
     long_description=open('README').read(),
 

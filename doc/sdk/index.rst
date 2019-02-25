@@ -27,9 +27,12 @@ Configuration
 
     sampleconfig
 
-Basic
+Basic Samples
 
-    TODO: Provide samples documentation
+.. toctree::
+    :maxdepth: 1
+
+    sampledoc
 
 Python API
 ----------
