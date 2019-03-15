@@ -105,7 +105,7 @@ print("\nRemoving build directory\n")
 remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "build"))
 
 print("\nRemoving dxlirflowclient.egg-info\n")
-remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "opendxl_irflow_client.egg-info"))
+remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "dxlirflowclient.egg-info"))
 
 print("\nMaking dist zip\n")
 make_archive(DIST_RELEASE_DIR, "zip", DIST_DIRECTORY, RELEASE_NAME)

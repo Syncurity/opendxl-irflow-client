@@ -14,7 +14,7 @@ with open(os.path.join(CWD, "dxlirflowclient", "_version.py")) as f:
 
 setup(
     # Package name:
-    name="opendxl_irflow_client",
+    name="dxlirflowclient",
 
     # Version number:
     version=VERSION_INFO["__version__"],
@@ -51,7 +51,7 @@ setup(
     # Details
     url="https://github.com/Syncurity/opendxl-irflow-client",
 
-    description="dxlirflowclient",
+    description="opendxl_irflow_client",
 
     long_description=open('README').read(),
 
