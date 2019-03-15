@@ -33,7 +33,7 @@ with DxlClient(config) as client:
     irfc = IRFlowApiClient(client)
 
     # Set request that will trigger request callback 'irflow_service_create_alert'
-    request_topic = "/syncurity/service/irflow_api/create_alert"
+    request_topic = "/open/threat/v1/orchestration/Syncurity/service/irflow_api/create_alert"
     req = Request(request_topic)
 
     # Create dictionary payload with host to lookup and response format
