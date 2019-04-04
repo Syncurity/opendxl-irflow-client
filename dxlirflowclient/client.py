@@ -36,7 +36,7 @@ class IRFlowApiClient(Client):
         #    raise Exception("Unknown format: {0}".format(out_format))
 
         # Create the DXL request message
-        request = Request("/syncurity/service/irflow_api/create_alert")
+        request = Request("/open/threat/v1/orchestration/Syncurity/service/irflow_api/create_alert")
 
         # Build Request payload
         fact_data = {'fields': payload, 'description': description,

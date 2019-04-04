@@ -52,5 +52,5 @@ Apache 2.0
 
 .. |OpenDXL Bootstrap| image:: https://img.shields.io/badge/Built%20With-OpenDXL%20Bootstrap-blue.svg
    :target: https://github.com/opendxl/opendxl-bootstrap-python
-.. |Latest PyPI Version| image:: https://img.shields.io/badge/pypi-v1.1.1-blue.svg
+.. |Latest PyPI Version| image:: https://img.shields.io/badge/pypi-v1.1.2-blue.svg
    :target: https://pypi.python.org/pypi/dxlirflowclient
